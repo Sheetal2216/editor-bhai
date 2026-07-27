@@ -4,45 +4,75 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .animate-fadeUp, .animate-floatY, .animate-marquee, .animate-pulseRing {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fadeUp,
+  .animate-floatY,
+  .animate-marquee,
+  .animate-pulseRing {
     animation: none !important;
   }
 }
 
-/* Thin scrollbar for the timeline strip */
+/* Thin scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
   height: 4px;
 }
+
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: #c7e9c0;
   border-radius: 4px;
 }
 
-/* Swiper pagination theming (coverflow + testimonials) */
+/* Swiper */
 .swiper-pagination-bullet {
   background: #c7e9c0 !important;
   opacity: 1 !important;
   width: 7px !important;
   height: 7px !important;
-  transition: all 0.25s ease;
+  transition: all .25s ease;
 }
+
 .swiper-pagination-bullet-active {
   background: #41ab5d !important;
   width: 20px !important;
   border-radius: 5px !important;
 }
 
-/* Reusable glassmorphism surface */
+/* Glass */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255,255,255,.7);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
