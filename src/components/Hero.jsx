@@ -68,7 +68,7 @@ export default function Hero() {
                   "
                 >
                   <source
-                    src="/images/Create_a_seamless_looping_anim (1).mp4"
+                    src="/images/hero.mp4"
                     type="video/mp4"
                   />
                 </motion.video>
