@@ -103,13 +103,15 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5" />
               </a>
 
-              <button
-                onClick={scrollToPortfolio}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gray-300 text-charcoal px-6 py-3.5 rounded-full font-semibold hover:border-mint-500 hover:text-mint-600 transition-all"
-              >
-                <Play className="w-4 h-4" />
-                View Portfolio
-              </button>
+             <a
+  href="https://abisek951.portfolial.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gray-300 text-charcoal px-6 py-3.5 rounded-full font-semibold hover:border-mint-500 hover:text-mint-600 transition-all"
+>
+  <Play className="w-4 h-4" />
+  View Portfolio
+</a>
             </Reveal>
 
             <Reveal delay={0.42}>
