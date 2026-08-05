@@ -16,10 +16,10 @@ export default function WorldMap() {
       className="
         relative
         w-full
-        h-[320px]
-        sm:h-[420px]
-        md:h-[520px]
-        lg:h-[600px]
+        h-[200px]
+        sm:h-[260px]
+        md:h-[320px]
+        lg:h-[380px]
         rounded-2xl
         lg:rounded-3xl
         bg-white

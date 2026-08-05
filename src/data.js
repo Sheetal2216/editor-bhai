@@ -26,7 +26,7 @@ export const HERO_IMAGES = [
   },
   {
     id: 2,
-    image: "/images/hero-2.jpeg",
+    image: "/images/hero-5.jpeg",
     title: "YouTube Growth",
     subtitle: "High Retention Videos",
   },
@@ -38,7 +38,7 @@ export const HERO_IMAGES = [
   },
   {
     id: 4,
-    image: "/images/hero-4.jpeg",
+    image: "/images/hero-6.jpeg",
     title: "Brand Campaigns",
     subtitle: "Commercial Editing",
   }

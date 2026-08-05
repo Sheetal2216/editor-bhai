@@ -10,14 +10,51 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-14 md:py-20 bg-mint-50">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
-        <Reveal className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-mint-600 mb-3">
-          <span className="w-6 h-px bg-mint-500" />Testimonials
-        </Reveal>
-        <Reveal delay={0.06} className="max-w-xl mb-9">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-charcoal">
-            What clients say after the first cut.
-          </h2>
-        </Reveal>
+        
+        {/* --- HEADER WRAPPER --- */}
+        {/* Changed md:items-end to md:items-center for better vertical balance */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-10 md:mb-14">
+          
+          {/* LEFT: Text Content */}
+          <div className="max-w-xl">
+            <Reveal className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-mint-600 mb-3">
+              <span className="w-6 h-px bg-mint-500" />
+              Testimonials
+            </Reveal>
+            
+            <Reveal delay={0.06}>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-charcoal">
+                What clients say after the first cut.
+              </h2>
+            </Reveal>
+
+            {/* NEW ADDITION: Paragraph to fill the empty space */}
+            <Reveal delay={0.08}>
+              <p className="mt-4 md:mt-5 text-charcoal-light leading-relaxed text-sm md:text-base">
+                We partner with top creators to build content that truly stands out. Our editing process is designed to maximize viewer retention, boost engagement, and bring your creative vision to life-saving you hours of stress in the process.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* RIGHT: Video Clip */}
+          <Reveal 
+            delay={0.1} 
+            className="w-full md:w-72 lg:w-96 flex-shrink-0 rounded-2xl overflow-hidden border border-mint-200 shadow-sm"
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover pointer-events-none aspect-video"
+              src="/images/Global_Creator_Network_GIF_Cre (2).mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </Reveal>
+          
+        </div>
+        {/* ----------------------- */}
 
         <Reveal delay={0.12}>
           <Swiper

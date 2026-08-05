@@ -34,7 +34,7 @@ export default function Clients() {
             </Reveal>
 
             {/* CLIENT CARDS */}
-           <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
               {PREMIUM_CLIENTS.map((c, i) => (
                 <Reveal key={c.name} delay={0.1 + i * 0.05}>
                   <motion.div
@@ -101,6 +101,21 @@ export default function Clients() {
                 <MapPin className="h-4 w-4 shrink-0" />
                 Global Footprint
               </div>
+
+              {/* ----- NEW VIDEO CLIP ----- */}
+              <div className="mb-4 sm:mb-6 w-full overflow-hidden rounded-2xl border border-mint-100 shadow-sm aspect-video">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover pointer-events-none"
+                  src="/public/images/Global_Creator_Network_GIF_Cre (1).mp4" 
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              {/* --------------------------- */}
 
               <div className="w-full overflow-hidden rounded-2xl">
                 <WorldMap />

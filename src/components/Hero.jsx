@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center">
           {/* LEFT */}
-          <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+          <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
             <Reveal>
               <span className="inline-block text-mint-600 font-semibold tracking-wide uppercase text-sm sm:text-base">
                 Hi, I'm
@@ -39,11 +39,40 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="mt-3 font-display font-black uppercase leading-[0.9] tracking-tight text-charcoal text-[42px] sm:text-6xl md:text-7xl lg:text-[88px]">
-                Editor
-                <br />
-                Bhai
-              </h1>
+              {/* Flex container to keep text and graphic aligned side-by-side */}
+              <div className="mt-3 flex flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8">
+                <h1 className="font-display font-black uppercase leading-[0.9] tracking-tight text-charcoal text-[42px] sm:text-6xl md:text-7xl lg:text-[88px]">
+                  Editor
+                  <br />
+                  Bhai
+                </h1>
+
+                {/* Floating Video/GIF with mix-blend-multiply applied */}
+                <motion.video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  animate={{
+                    scale: [1, 1.03, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="
+                    w-[140px] sm:w-[180px] md:w-[240px] lg:w-[300px] 
+                    shrink-0 pointer-events-none z-20 
+                    mix-blend-multiply object-contain
+                  "
+                >
+                  <source
+                    src="/images/Create_a_seamless_looping_anim (1).mp4"
+                    type="video/mp4"
+                  />
+                </motion.video>
+              </div>
             </Reveal>
 
             <Reveal delay={0.18}>
