@@ -68,7 +68,7 @@ export default function Hero() {
                   "
                 >
                   <source
-                    src="/images/hero.mp4"
+                    src="/images/herOo.mp4"
                     type="video/mp4"
                   />
                 </motion.video>

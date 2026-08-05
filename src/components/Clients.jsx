@@ -4,6 +4,18 @@ import Reveal from "./Reveal";
 import WorldMap from "./WorldMap";
 import { PREMIUM_CLIENTS, OTHER_BRANDS } from "../data";
 
+// Helper to map specific clients to their image paths
+const getClientImage = (clientName) => {
+  const name = clientName.toLowerCase();
+  
+  // Made checks more flexible in case of slight spelling variations in your data.js
+  if (name.includes("awara") || name.includes("musafir")) return "/images/awara-musafir.png";
+  if (name.includes("jaya") || name.includes("kishori")) return "/images/jaya-kishori.png";
+  if (name.includes("arun") || name.includes("pandit")) return "/images/arun-pandit.png";
+  
+  return null;
+};
+
 export default function Clients() {
   return (
     <section
@@ -35,37 +47,50 @@ export default function Clients() {
 
             {/* CLIENT CARDS */}
             <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-              {PREMIUM_CLIENTS.map((c, i) => (
-                <Reveal key={c.name} delay={0.1 + i * 0.05}>
-                  <motion.div
-                    whileHover={{
-                      y: -6,
-                    }}
-                    whileTap={{ y: -2 }}
-                    className="group relative overflow-hidden rounded-2xl border border-mint-100 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:border-mint-400 hover:shadow-lg h-full"
-                  >
-                    <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-mint-100 transition-colors group-hover:bg-mint-200" />
+              {PREMIUM_CLIENTS.map((c, i) => {
+                const clientImage = getClientImage(c.name);
 
-                    <div className="relative">
-                      <span className="mb-3 sm:mb-4 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-mint-500 text-xs sm:text-sm font-bold text-white shrink-0">
-                        {c.name.charAt(0)}
-                      </span>
+                return (
+                  <Reveal key={c.name} delay={0.1 + i * 0.05}>
+                    <motion.div
+                      whileHover={{
+                        y: -6,
+                      }}
+                      whileTap={{ y: -2 }}
+                      className="group relative overflow-hidden rounded-2xl border border-mint-100 bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 hover:border-mint-400 hover:shadow-lg h-full"
+                    >
+                      <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-mint-100 transition-colors group-hover:bg-mint-200" />
 
-                      <h3 className="font-semibold text-charcoal text-sm sm:text-base break-words">
-                        {c.name}
-                      </h3>
+                      <div className="relative">
+                        {/* Render image if found, else fallback to initial. Increased sizes to h-14/16 w-14/16 */}
+                        {clientImage ? (
+                          <img
+                            src={clientImage}
+                            alt={c.name}
+                            className="mb-3 sm:mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full object-cover shrink-0 border border-mint-100"
+                          />
+                        ) : (
+                          <span className="mb-3 sm:mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-mint-500 text-sm sm:text-base font-bold text-white shrink-0">
+                            {c.name.charAt(0)}
+                          </span>
+                        )}
 
-                      <p className="mt-1 text-xs sm:text-sm text-charcoal-soft break-words">
-                        {c.country} • {c.category}
-                      </p>
+                        <h3 className="font-semibold text-charcoal text-sm sm:text-base break-words">
+                          {c.name}
+                        </h3>
 
-                      <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-semibold text-mint-600 break-words">
-                        {c.stat}
-                      </p>
-                    </div>
-                  </motion.div>
-                </Reveal>
-              ))}
+                        <p className="mt-1 text-xs sm:text-sm text-charcoal-soft break-words">
+                          {c.country} • {c.category}
+                        </p>
+
+                        <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-semibold text-mint-600 break-words">
+                          {c.stat}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </Reveal>
+                );
+              })}
             </div>
 
             {/* MARQUEE */}
@@ -110,7 +135,7 @@ export default function Clients() {
                   muted
                   playsInline
                   className="w-full h-full object-cover pointer-events-none"
-                  src="/images/Global_Creator_Network_GIF_Cre (1).mp4" 
+                  src="/images/Global_Creator_Network_GIF_Cre (1).mp4"
                 >
                   Your browser does not support the video tag.
                 </video>

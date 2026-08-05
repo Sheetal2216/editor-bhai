@@ -65,7 +65,7 @@ export const SERVICES = [
   { title: 'Shoot', desc: 'On-location shoots planned and directed end to end.', icon: 'camera' },
   { title: 'Digital Marketing', desc: 'Growth strategy tuned for creators and spiritual brands.', icon: 'trend' },
   { title: 'Web Development', desc: 'Fast, modern portfolio and landing sites for creators.', icon: 'code' },
-  { title: 'Brand Strategy', desc: 'Positioning, voice and visual identity that stick.', icon: 'target' },
+  { title: 'SEO', desc: 'Positioning, voice and visual identity that stick.', icon: 'target' },
 ]
 
 export const ASTROLOGERS = [
@@ -214,7 +214,7 @@ export const NAV_LINKS = [
   { label: 'Clients', href: '#clients' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
-  { label: 'FAQ', href: '#faq' },
+ 
 ]
 
 export const FAQS = [
