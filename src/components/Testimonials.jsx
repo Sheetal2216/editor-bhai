@@ -92,10 +92,7 @@ export default function Testimonials() {
           </Swiper>
         </Reveal>
 
-        <p className="text-xs text-charcoal-soft text-center -mt-2">
-          Sample quotes shown as placeholders — swap in real client testimonials in{' '}
-          <code className="bg-white px-1.5 py-0.5 rounded">src/data.js</code>.
-        </p>
+       
       </div>
     </section>
   )
