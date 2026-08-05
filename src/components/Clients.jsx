@@ -110,7 +110,7 @@ export default function Clients() {
                   muted
                   playsInline
                   className="w-full h-full object-cover pointer-events-none"
-                  src="/public/images/Global_Creator_Network_GIF_Cre (1).mp4" 
+                  src="/images/Global_Creator_Network_GIF_Cre (1).mp4" 
                 >
                   Your browser does not support the video tag.
                 </video>
