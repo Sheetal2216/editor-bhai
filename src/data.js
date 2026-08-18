@@ -6,7 +6,7 @@
 export const PROFILE = {
   name: 'Editor Bhai',
   realName: 'Abhishek Gupta',
-  title: 'Senior Video Editor & Graphic Designer',
+  title: ' Leading global marketing agency',
   tagline: 'Cutting stories that cross 1.5 billion views — and counting.',
   locations: ['France', 'Canada', 'Oman', 'Noida', 'Bangalore', 'Mumbai'],
   whatsapp: '+91 88408-24774',
@@ -21,26 +21,22 @@ export const HERO_IMAGES = [
   {
     id: 1,
     image: "/images/hero-1.jpeg",
-    title: "Podcast Editing",
-    subtitle: "Long-form & Shorts",
+    
   },
   {
     id: 2,
     image: "/images/hero-5.jpeg",
-    title: "YouTube Growth",
-    subtitle: "High Retention Videos",
+   
   },
   {
     id: 3,
     image: "/images/hero-3.jpeg",
-    title: "Motion Graphics",
-    subtitle: "Creative Storytelling",
+  
   },
   {
     id: 4,
     image: "/images/hero-6.jpeg",
-    title: "Brand Campaigns",
-    subtitle: "Commercial Editing",
+  
   }
 ];
 export const HERO_SLIDES = [
