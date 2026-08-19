@@ -11,13 +11,13 @@ const FOUNDERS = [
     name: PROFILE.realName,
     role: `Founder · ${PROFILE.name}`,
     blurb: `Leads editing, strategy and client relationships day to day, working across ${PROFILE.locations.join(", ")}.`,
-    image: "/images/about-1.jpeg",
+    image: "/images/founder.jpeg",
   },
   {
-    name: "Founder Name",
+    name: "Rakhi Pandey",
     role: "Co-Founder",
-    blurb: "Add this founder's name, role and focus area here.",
-    image: null,
+    blurb: "Growth Head",
+    image: "/images/co-founder.jpeg",
   },
 ];
 
