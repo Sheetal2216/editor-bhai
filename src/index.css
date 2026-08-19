@@ -81,3 +81,1323 @@ canvas {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+
+------------------------------------------------------------------
+
+/* =========================================================
+   =========================================================
+   EDITOR BHAI PRELOADER — VERSION 3
+   =========================================================
+   =========================================================
+
+   BACKGROUND
+   #F6F7F1
+
+   PRIMARY GREEN
+   #1C6B44
+
+   DARK GREEN
+   #123F29
+
+   LIGHT GREEN
+   #E4EEE3
+
+   TEXT
+   #10150F
+
+   SECONDARY TEXT
+   #3C453D
+
+   BORDER
+   #DDE2D6
+
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.eb-preloader-screen {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+
+  height: 100vh !important;
+
+  min-width: 100vw !important;
+
+  min-height: 100vh !important;
+
+  z-index: 2147483647 !important;
+
+  overflow: hidden !important;
+
+  background: #F6F7F1 !important;
+
+  isolation: isolate !important;
+
+  color: #10150F;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  box-sizing: border-box;
+
+  pointer-events: all !important;
+
+  font-family: inherit;
+}
+
+
+/* Universal box sizing */
+
+.eb-preloader-screen *,
+.eb-preloader-screen *::before,
+.eb-preloader-screen *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+========================================================= */
+
+.eb-bg-glow {
+  position: absolute;
+
+  width: 650px;
+
+  height: 650px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(130px);
+
+  z-index: 0;
+
+  opacity: 0.45;
+}
+
+
+.eb-bg-glow-left {
+  left: -300px;
+
+  top: -100px;
+
+  background: rgba(
+    28,
+    107,
+    68,
+    0.12
+  );
+}
+
+
+.eb-bg-glow-right {
+  right: -300px;
+
+  bottom: -150px;
+
+  background: rgba(
+    28,
+    107,
+    68,
+    0.09
+  );
+}
+
+
+/* =========================================================
+   SUBTLE DOT GRID
+========================================================= */
+
+.eb-preloader-screen::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      rgba(
+        28,
+        107,
+        68,
+        0.08
+      ) 1px,
+
+      transparent 1px
+    );
+
+  background-size: 36px 36px;
+
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   CENTER GLOW
+========================================================= */
+
+.eb-preloader-screen::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 44%;
+
+  width: 700px;
+
+  height: 700px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(
+        28,
+        107,
+        68,
+        0.08
+      ) 0%,
+
+      rgba(
+        28,
+        107,
+        68,
+        0
+      ) 68%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   TOP STATUS
+========================================================= */
+
+.eb-loading-text {
+  position: absolute;
+
+  top: 42px;
+
+  left: 0;
+
+  width: 100%;
+
+  z-index: 60;
+
+  text-align: center;
+
+  color: #10150F;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.35em;
+
+  white-space: nowrap;
+
+  user-select: none;
+}
+
+
+.eb-loading-text span {
+  color: #1C6B44;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   MAIN STAGE
+========================================================= */
+
+.eb-stage {
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  width: min(
+    1050px,
+    92vw
+  );
+
+  height: 720px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  z-index: 20;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.eb-stage .eb-logo-wrapper {
+  position: relative;
+
+  width: 320px;
+
+  height: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+.eb-stage .eb-logo {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  object-fit: contain;
+
+  border: 0;
+
+  outline: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  filter:
+    drop-shadow(
+      0 12px 28px
+      rgba(
+        16,
+        21,
+        15,
+        0.14
+      )
+    );
+}
+
+
+/* =========================================================
+   EDITOR AREA
+========================================================= */
+
+.eb-stage .eb-editor-area {
+  position: relative;
+
+  width: min(
+    900px,
+    100%
+  );
+
+  margin-top: 48px;
+
+  margin-left: 0;
+
+  margin-right: 0;
+
+  padding: 0;
+
+  z-index: 25;
+
+  flex-shrink: 0;
+}
+
+
+.eb-stage .eb-timeline {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   RULER
+========================================================= */
+
+.eb-stage .eb-ruler {
+  position: relative;
+
+  width: 100%;
+
+  height: 20px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  margin: 0;
+
+  padding: 0 6px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      16,
+      21,
+      15,
+      0.16
+    );
+}
+
+
+.eb-stage .eb-ruler span {
+  display: block;
+
+  width: 1px;
+
+  height: 6px;
+
+  flex-shrink: 0;
+
+  background:
+    rgba(
+      16,
+      21,
+      15,
+      0.30
+    );
+}
+
+
+.eb-stage .eb-ruler span:nth-child(5n) {
+  height: 12px;
+
+  background:
+    rgba(
+      16,
+      21,
+      15,
+      0.45
+    );
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.eb-stage .eb-track {
+  position: relative;
+
+  width: 100%;
+
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0;
+
+  padding: 0 12px;
+
+  overflow: hidden;
+
+  background: #E4EEE3;
+
+  border:
+    1px solid
+    #DDE2D6;
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 8px 24px
+    rgba(
+      16,
+      21,
+      15,
+      0.06
+    );
+}
+
+
+/* =========================================================
+   CLIPS
+========================================================= */
+
+.eb-stage .eb-clip {
+  position: relative;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  transform-origin: left center;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+
+.eb-stage .eb-clip-green {
+  background: #1C6B44;
+}
+
+
+.eb-stage .eb-clip-light {
+  background: #F1F4EC;
+
+  border:
+    1px solid
+    #DDE2D6;
+}
+
+
+.eb-stage .eb-clip-white {
+  background: #FFFFFF;
+
+  border:
+    1px solid
+    #DDE2D6;
+}
+
+
+.eb-stage .eb-clip-dark {
+  background: #3C453D;
+}
+
+
+/* =========================================================
+   CLIP SHINE
+========================================================= */
+
+.eb-stage .eb-clip-inner {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+
+      transparent 0%,
+
+      rgba(
+        255,
+        255,
+        255,
+        0.35
+      ) 50%,
+
+      transparent 100%
+    );
+
+  animation:
+    eb-clip-shimmer
+    2s
+    linear
+    infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes eb-clip-shimmer {
+
+  0% {
+    transform:
+      translateX(-110%);
+  }
+
+  100% {
+    transform:
+      translateX(110%);
+  }
+
+}
+
+
+/* =========================================================
+   PLAYHEAD
+========================================================= */
+
+.eb-stage .eb-playhead {
+  position: absolute;
+
+  top: -14px;
+
+  bottom: -4px;
+
+  width: 3px;
+
+  z-index: 50;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+.eb-stage .eb-playhead-line {
+  position: absolute;
+
+  top: 14px;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 3px;
+
+  background: #1C6B44;
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      28,
+      107,
+      68,
+      0.55
+    ),
+
+    0 0 18px
+    rgba(
+      28,
+      107,
+      68,
+      0.25
+    );
+}
+
+
+.eb-stage .eb-playhead-marker {
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  width: 0;
+
+  height: 0;
+
+  transform:
+    translateX(-50%);
+
+  border-left:
+    7px solid transparent;
+
+  border-right:
+    7px solid transparent;
+
+  border-top:
+    10px solid #1C6B44;
+}
+
+
+.eb-stage .eb-playhead-dot {
+  position: absolute;
+
+  top: 48%;
+
+  left: 50%;
+
+  width: 10px;
+
+  height: 10px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 50%;
+
+  background: #1C6B44;
+
+  box-shadow:
+    0 0 10px
+    rgba(
+      28,
+      107,
+      68,
+      0.55
+    );
+}
+
+
+/* =========================================================
+   CUT MARKERS
+========================================================= */
+
+.eb-stage .eb-cut {
+  position: absolute;
+
+  top: 8px;
+
+  bottom: 8px;
+
+  width: 3px;
+
+  z-index: 35;
+
+  background: #123F29;
+
+  opacity: 0.85;
+
+  transform-origin: center;
+}
+
+
+.eb-stage .cut-one {
+  left: 25%;
+}
+
+
+.eb-stage .cut-two {
+  left: 52%;
+}
+
+
+.eb-stage .cut-three {
+  left: 72%;
+}
+
+
+/* =========================================================
+   WAVEFORM
+========================================================= */
+
+.eb-stage .eb-waveform {
+  position: relative;
+
+  width: 100%;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  margin: 0;
+
+  padding: 0 12px;
+
+  overflow: hidden;
+
+  background: #F1F4EC;
+
+  border-left:
+    1px solid
+    #DDE2D6;
+
+  border-right:
+    1px solid
+    #DDE2D6;
+
+  border-bottom:
+    1px solid
+    #DDE2D6;
+}
+
+
+.eb-stage .eb-waveform span {
+  display: block;
+
+  flex: 1;
+
+  min-width: 1px;
+
+  max-width: 4px;
+
+  height: 6px;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-radius: 3px;
+
+  background: #1C6B44;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   BRANDING
+========================================================= */
+
+.eb-stage .eb-branding {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 38px;
+
+  margin-left: 0;
+
+  margin-right: 0;
+
+  padding: 0;
+
+  z-index: 60;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BRAND NAME
+========================================================= */
+
+.eb-stage .eb-brand-name {
+  margin: 0;
+
+  padding: 0;
+
+  color: #10150F;
+
+  font-size: clamp(
+    32px,
+    4vw,
+    46px
+  );
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  text-align: center;
+}
+
+
+.eb-stage .eb-brand-name span {
+  color: #1C6B44;
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.eb-stage .eb-tagline {
+  margin-top: 13px;
+
+  padding: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  color: #3C453D;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.30em;
+
+  text-align: center;
+
+  opacity: 0.85;
+}
+
+
+.eb-stage .eb-tagline i {
+  display: block;
+
+  width: 35px;
+
+  height: 2px;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  padding: 0;
+
+  background: #1C6B44;
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.eb-particles {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  z-index: 45;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+.eb-particles span {
+  position: absolute;
+
+  left: 50%;
+
+  top: 34%;
+
+  width: 5px;
+
+  height: 5px;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background: #1C6B44;
+
+  box-shadow:
+    0 0 8px
+    rgba(
+      28,
+      107,
+      68,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   FINAL TRANSITION
+========================================================= */
+
+.eb-transition-line {
+  position: absolute;
+
+  left: 0;
+
+  top: 50%;
+
+  width: 100%;
+
+  height: 4px;
+
+  z-index: 100;
+
+  transform-origin:
+    center center;
+
+  background: #1C6B44;
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      28,
+      107,
+      68,
+      0.35
+    ),
+
+    0 0 35px
+    rgba(
+      28,
+      107,
+      68,
+      0.15
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .eb-stage {
+    width: 92vw;
+
+    height: 650px;
+  }
+
+
+  .eb-stage .eb-logo-wrapper {
+    width: 280px;
+  }
+
+
+  .eb-stage .eb-editor-area {
+    width: 100%;
+
+    margin-top: 42px;
+  }
+
+
+  .eb-stage .eb-track {
+    height: 64px;
+  }
+
+
+  .eb-stage .eb-clip {
+    height: 34px;
+  }
+
+
+  .eb-stage .eb-brand-name {
+    font-size: 36px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .eb-loading-text {
+    top: 28px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.28em;
+  }
+
+
+  .eb-stage {
+    width: 92vw;
+
+    height: auto;
+
+    min-height: 520px;
+  }
+
+
+  .eb-stage .eb-logo-wrapper {
+    width: 210px;
+  }
+
+
+  .eb-stage .eb-editor-area {
+    width: 100%;
+
+    margin-top: 32px;
+  }
+
+
+  .eb-stage .eb-ruler {
+    height: 15px;
+  }
+
+
+  .eb-stage .eb-track {
+    height: 54px;
+
+    gap: 4px;
+
+    padding: 0 7px;
+  }
+
+
+  .eb-stage .eb-clip {
+    height: 28px;
+  }
+
+
+  .eb-stage .eb-waveform {
+    height: 28px;
+
+    gap: 2px;
+
+    padding: 0 7px;
+  }
+
+
+  .eb-stage .eb-branding {
+    margin-top: 28px;
+  }
+
+
+  .eb-stage .eb-brand-name {
+    font-size: 28px;
+
+    letter-spacing: 0.06em;
+  }
+
+
+  .eb-stage .eb-tagline {
+    margin-top: 10px;
+
+    font-size: 6px;
+
+    letter-spacing: 0.16em;
+
+    gap: 8px;
+  }
+
+
+  .eb-stage .eb-tagline i {
+    width: 20px;
+
+    height: 1px;
+  }
+
+
+  .eb-bg-glow {
+    width: 400px;
+
+    height: 400px;
+
+    filter: blur(100px);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .eb-loading-text {
+    top: 23px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.22em;
+  }
+
+
+  .eb-stage {
+    width: 94vw;
+
+    min-height: 460px;
+  }
+
+
+  .eb-stage .eb-logo-wrapper {
+    width: 170px;
+  }
+
+
+  .eb-stage .eb-editor-area {
+    margin-top: 26px;
+  }
+
+
+  .eb-stage .eb-ruler {
+    height: 12px;
+  }
+
+
+  .eb-stage .eb-track {
+    height: 47px;
+
+    gap: 3px;
+
+    padding: 0 5px;
+
+    border-radius: 5px;
+  }
+
+
+  .eb-stage .eb-clip {
+    height: 23px;
+
+    border-radius: 3px;
+  }
+
+
+  .eb-stage .eb-waveform {
+    height: 24px;
+
+    gap: 1px;
+
+    padding: 0 5px;
+  }
+
+
+  .eb-stage .eb-branding {
+    margin-top: 23px;
+  }
+
+
+  .eb-stage .eb-brand-name {
+    font-size: 22px;
+
+    letter-spacing: 0.05em;
+  }
+
+
+  .eb-stage .eb-tagline {
+    margin-top: 8px;
+
+    font-size: 4px;
+
+    letter-spacing: 0.10em;
+
+    gap: 5px;
+  }
+
+
+  .eb-stage .eb-tagline i {
+    width: 12px;
+
+    height: 1px;
+  }
+
+
+  .eb-bg-glow {
+    width: 280px;
+
+    height: 280px;
+
+    filter: blur(80px);
+  }
+
+
+  .eb-preloader-screen::after {
+    width: 400px;
+
+    height: 400px;
+
+    filter: blur(80px);
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .eb-stage .eb-logo-wrapper {
+    width: 145px;
+  }
+
+
+  .eb-stage .eb-editor-area {
+    margin-top: 22px;
+  }
+
+
+  .eb-stage .eb-brand-name {
+    font-size: 19px;
+  }
+
+
+  .eb-stage .eb-tagline {
+    font-size: 3.5px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .eb-stage .eb-tagline i {
+    width: 9px;
+  }
+
+}
