@@ -925,9 +925,7 @@ export default function Testimonials() {
 
             <div className="tst-head">
 
-              <div className="tst-eyebrow">
-                Proof
-              </div>
+          
 
               <h2 className="font-display">
                 Client{" "}
@@ -1023,9 +1021,7 @@ export default function Testimonials() {
 
             <div className="vtc-head">
 
-              <div className="vtc-eyebrow">
-                Watch &amp; Believe
-              </div>
+          
 
               <h2 className="font-display">
                 Hear it straight from them.

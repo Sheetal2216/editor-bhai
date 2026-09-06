@@ -43,7 +43,7 @@ const ACTIONS = [
 
 const TRUST = [
   { Icon: Zap, label: '48h turnaround' },
-  { Icon: UserCheck, label: 'Dedicated editor' },
+  { Icon: UserCheck, label: 'Dedicated team' },
   { Icon: CheckCircle2, label: 'Free, no-obligation call' },
 ]
 
@@ -891,7 +891,7 @@ export default function Contact() {
                 text-charcoal
               "
             >
-              One editor, clients across four time zones
+              One agency. Global clients. Consistent quality, reliable turnaround, and dedicated support across time zones.
             </h3>
 
           </Reveal>

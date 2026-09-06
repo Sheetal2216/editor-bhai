@@ -162,7 +162,7 @@ export default function FloatingWhatsApp() {
 
             {/* Description */}
             <p className="text-xs text-charcoal-soft leading-relaxed mb-3">
-              Need a video editor? We're just one message away.
+              Need help? We're just one message away.
             </p>
 
             {/* WhatsApp Button */}

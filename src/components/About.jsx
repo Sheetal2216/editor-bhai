@@ -16,7 +16,7 @@ const FOUNDERS = [
   {
     name: "Rakhi Pandey",
     role: "Co-Founder",
-    blurb: "Growth Head",
+    blurb: "Experienced in working with international clients, driving business growth, and building strong client relationships across global markets.",
     image: "/images/co-founder.jpeg",
   },
 ];
@@ -70,9 +70,6 @@ export default function About() {
         <Reveal>
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-[2px] bg-mint-500" />
-            <span className="uppercase tracking-[0.25em] text-sm font-semibold text-mint-600">
-              Leadership
-            </span>
           </div>
         </Reveal>
 
@@ -95,9 +92,9 @@ export default function About() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25 }}
-                className="flex items-center gap-5 rounded-2xl border border-mint-100 bg-white p-5 shadow-sm hover:shadow-lg transition-all duration-300"
+                className="flex flex-col xl:flex-row items-center xl:items-start gap-6 rounded-3xl border border-mint-100 bg-white p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 text-center xl:text-left"
               >
-                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-2xl overflow-hidden shrink-0 shadow-md border border-mint-100">
+                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-2xl overflow-hidden shrink-0 shadow-md border-2 border-mint-50">
                   {founder.image ? (
                     <img
                       src={founder.image}
@@ -105,7 +102,7 @@ export default function About() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full bg-mint-50 flex items-center justify-center font-display font-bold text-mint-700 text-xl">
+                    <div className="w-full h-full bg-mint-50 flex items-center justify-center font-display font-bold text-mint-700 text-3xl lg:text-4xl">
                       {founder.name
                         .split(" ")
                         .map((w) => w[0])
@@ -115,14 +112,14 @@ export default function About() {
                   )}
                 </div>
 
-                <div>
-                  <p className="font-display font-bold text-lg text-charcoal">
+                <div className="flex-1 mt-2 xl:mt-0">
+                  <p className="font-display font-bold text-xl lg:text-2xl text-charcoal">
                     {founder.name}
                   </p>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-mint-600 mt-1">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-mint-600 mt-1.5">
                     {founder.role}
                   </p>
-                  <p className="mt-2 text-sm text-charcoal-soft leading-6">
+                  <p className="mt-3 text-base text-charcoal-soft leading-relaxed">
                     {founder.blurb}
                   </p>
                 </div>
@@ -135,9 +132,7 @@ export default function About() {
         <Reveal delay={0.05} className="mt-16 lg:mt-20">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-[2px] bg-mint-500" />
-            <span className="uppercase tracking-[0.25em] text-sm font-semibold text-mint-600">
-              The People
-            </span>
+           
           </div>
         </Reveal>
 
@@ -149,8 +144,7 @@ export default function About() {
 
         <Reveal delay={0.12}>
           <p className="mt-5 text-charcoal-light leading-8 text-lg max-w-2xl">
-            Eleven specialists across editing, design, web and content — the
-            crew behind every video that ships.
+            A multidisciplinary team of editors, designers, developers, and strategists working together to bring every project to life.
           </p>
         </Reveal>
 

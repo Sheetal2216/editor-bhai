@@ -437,33 +437,80 @@ export default function Pricing() {
         .prc-head p{color:var(--muted);font-size:15.5px;line-height:1.7;margin:16px 0 0;max-width:520px;}
 
         .prc-row{position:relative;margin-top:64px;display:flex;flex-wrap:nowrap;gap:8px;}
-        .prc-step{flex:1 1 0;min-width:0;}
+        
+        /* New Keyframes for staggered entry */
+        @keyframes prcFadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes prcPop {
+          from { transform: scale(0) rotate(-15deg); }
+          to { transform: scale(1) rotate(0deg); }
+        }
+
+        /* Animated Line */
         .prc-line{
           position:absolute;top:32px;left:calc(100%/12);right:calc(100%/12);height:2px;
           background:linear-gradient(90deg,var(--green) 0%,var(--green-dark) 100%);
           transform-origin:left center;transform:scaleX(0);
-          transition:transform 1.3s cubic-bezier(.2,.8,.2,1);z-index:0;
+          transition:transform 1.8s cubic-bezier(.22, 1, .36, 1) .2s;
+          z-index:0;
         }
         .prc-row.in-view .prc-line{transform:scaleX(1);}
 
+        /* Step Card */
         .prc-step{
           position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;
-          text-align:center;padding:0 8px;
-          opacity:0;transform:translateY(22px);
-          transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1);
+          text-align:center;padding:16px 8px; border-radius:16px;
+          opacity:0; 
+          transition: background .3s ease, transform .3s cubic-bezier(.2,.8,.2,1);
         }
-        .prc-row.in-view .prc-step{opacity:1;transform:translateY(0);}
+        .prc-row.in-view .prc-step{
+          animation: prcFadeUp .6s cubic-bezier(.2,.8,.2,1) forwards;
+        }
+        
+        /* Hover lift effect */
+        .prc-row.in-view .prc-step:hover {
+          background: var(--cream);
+          transform: translateY(-8px);
+        }
 
+        /* Animated Icon */
         .prc-icon{
           width:64px;height:64px;border-radius:17px;background:var(--ink);flex:none;
           display:flex;align-items:center;justify-content:center;margin-bottom:22px;
-          box-shadow:0 12px 24px rgba(21,24,28,.20);
-          transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+          box-shadow:0 12px 24px rgba(21,24,28,.15);
+          transform:scale(0);
+          transition: background .3s ease, box-shadow .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1);
         }
-        .prc-row.in-view .prc-icon{transform:scale(1);}
-        .prc-icon svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+        .prc-row.in-view .prc-icon{
+          animation: prcPop .6s cubic-bezier(.34,1.56,.64,1) forwards;
+        }
 
-        .prc-step-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--ink);}
+        /* Icon Hover changes */
+        .prc-row.in-view .prc-step:hover .prc-icon {
+          background: var(--green);
+          box-shadow: 0 16px 32px rgba(47,125,79,.3);
+          transform: scale(1.1) rotate(6deg);
+        }
+
+        /* SVG Inner icon */
+        .prc-icon svg{
+          width:25px;height:25px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+          transition: transform .3s ease;
+        }
+        .prc-row.in-view .prc-step:hover .prc-icon svg {
+          transform: scale(1.15);
+        }
+
+        /* Text transitions */
+        .prc-step-title{
+          font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--ink);
+          transition: color .3s ease;
+        }
+        .prc-row.in-view .prc-step:hover .prc-step-title {
+          color: var(--green-dark);
+        }
         .prc-step-desc{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:7px;max-width:190px;}
 
         @media (max-width:980px){
@@ -471,13 +518,15 @@ export default function Pricing() {
           .prc-step{flex:1 1 30%;}
           .prc-line{display:none;}
           .prc-head h2{font-size:30px;}
+          .prc-row.in-view .prc-step:hover { transform: translateY(-4px); }
         }
         @media (max-width:640px){
           .prc-row{flex-direction:column;row-gap:0;}
-          .prc-step{flex:1 1 auto;flex-direction:row;text-align:left;align-items:flex-start;padding:22px 0;gap:18px;border-bottom:1px solid var(--line);}
+          .prc-step{flex:1 1 auto;flex-direction:row;text-align:left;align-items:flex-start;padding:22px 16px;gap:18px;border-bottom:1px solid var(--line); border-radius: 0;}
           .prc-step:last-child{border-bottom:none;}
           .prc-icon{margin-bottom:0;}
           .prc-step-desc{max-width:none;}
+          .prc-row.in-view .prc-step:hover { transform: translateX(6px); background: transparent; }
         }
       `}</style>
 
@@ -485,7 +534,6 @@ export default function Pricing() {
       <section className="pln-section" id="plans">
         <div className="pln-wrap">
           <div ref={headRef} className={`pln-head${headInView ? " in-view" : ""}`}>
-            <div className="pln-eyebrow">Plans</div>
             <h2>Three ways to work together.</h2>
             <p>
               Every plan comes with a dedicated team, not a ticketing queue — from
@@ -522,9 +570,18 @@ export default function Pricing() {
 
           <div ref={processRowRef} className={`prc-row${processRowInView ? " in-view" : ""}`}>
             <div className="prc-line" />
-            {PROCESS_STEPS.map((step) => (
-              <div className="prc-step" key={step.title}>
-                <div className="prc-icon">{step.icon}</div>
+            {PROCESS_STEPS.map((step, index) => (
+              <div 
+                className="prc-step" 
+                key={step.title}
+                style={processRowInView ? { animationDelay: `${index * 0.15}s` } : {}}
+              >
+                <div 
+                  className="prc-icon"
+                  style={processRowInView ? { animationDelay: `${0.1 + index * 0.15}s` } : {}}
+                >
+                  {step.icon}
+                </div>
                 <div className="prc-step-title">{step.title}</div>
                 <div className="prc-step-desc">{step.desc}</div>
               </div>
