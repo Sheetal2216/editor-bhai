@@ -79,22 +79,26 @@ export default function Hero() {
           {/* LEFT COLUMN */}
           <div className="w-full max-w-2xl mx-auto lg:mx-0 text-center lg:text-left min-w-0">
             
-            {/* WE ARE */}
+           {/* WE ARE */}
             <Reveal delay={D}>
-              <span className="inline-block text-mint-600 font-semibold tracking-wide uppercase text-xs sm:text-sm lg:text-base">We are</span>
+              <div className="w-fit mx-auto lg:mx-0 flex justify-center lg:justify-start">
+                <span className="inline-block text-mint-600 font-semibold tracking-wide uppercase text-xs sm:text-sm lg:text-base mb-1 lg:mb-0">
+                  We are
+                </span>
+              </div>
             </Reveal>
 
-            {/* TITLE + LOGO */}
+   {/* TITLE + LOGO */}
             <Reveal delay={D + 0.1}>
-             <div className="-mt-4 sm:-mt-6 lg:-mt-8 flex items-center justify-center lg:justify-start gap-0 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 w-full">
-                <h1 className="font-display font-black uppercase leading-[0.86] tracking-tight text-charcoal text-[42px] min-[390px]:text-[46px] min-[430px]:text-[50px] sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[86px] text-left shrink-0">
+              <div className="-mt-1 sm:-mt-4 lg:-mt-6 flex items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 w-fit mx-auto lg:mx-0">
+                <h1 className="font-display font-black uppercase leading-[0.86] tracking-tight text-charcoal text-left text-[42px] min-[390px]:text-[46px] min-[430px]:text-[50px] sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[86px] shrink-0">
                   Editor<br />Bhai
                 </h1>
                 <motion.video
                   autoPlay loop muted playsInline
                   animate={{ scale: [1, 1.035, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="self-center w-[78px] h-[78px] min-[390px]:w-[88px] min-[390px]:h-[88px] min-[430px]:w-[98px] min-[430px]:h-[98px] sm:w-[125px] sm:h-[125px] md:w-[155px] md:h-[155px] lg:w-[185px] lg:h-[185px] xl:w-[225px] xl:h-[225px] shrink-0 object-contain pointer-events-none z-20"
+                  className="shrink-0 object-contain pointer-events-none z-20 w-[72px] h-[72px] min-[390px]:w-[84px] min-[390px]:h-[84px] min-[430px]:w-[92px] min-[430px]:h-[92px] sm:w-[125px] sm:h-[125px] md:w-[155px] md:h-[155px] lg:w-[185px] lg:h-[185px] xl:w-[225px] xl:h-[225px]"
                 >
                   <source src="/images/herOo.mp4" type="video/mp4" />
                 </motion.video>
