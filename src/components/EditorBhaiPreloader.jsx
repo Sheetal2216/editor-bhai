@@ -363,45 +363,39 @@ export default function EditorBhaiPreloader({ onComplete }) {
             </motion.div>
 
 
-            {/* =================================================
-                BRANDING
-            ================================================= */}
+          
+
+           {/* =================================================
+                  BRANDING
+              ================================================= */}
 
             <motion.div
               className="eb-branding"
-
-              initial={{
-                opacity: 0,
-                y: 18,
-              }}
-
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 2.8,
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-
               <div className="eb-brand-name">
                 EDITOR <span>BHAI</span>
               </div>
 
-
               <div className="eb-tagline">
+                <i />
+                
+                {/* Wrapped the text in a flex-col div so it stacks vertically in the center */}
+                <div className="flex flex-col items-center mx-4 gap-1">
+                  <span>A COMPLETE CREATOR GUIDE</span>
+                  <span className="text-[10px] sm:text-xs tracking-wider opacity-80 mt-1">
+                    Social media || Content || Marketing || Revenue || Strategy
+                  </span>
+                </div>
 
                 <i />
-
-                WE BUILD BRANDS THAT CONNECTS
-
-                <i />
-
               </div>
-
             </motion.div>
 
           </div>

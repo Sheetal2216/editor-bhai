@@ -1,25 +1,35 @@
 import { useState, useEffect, useRef, useCallback, useLayoutEffect } from "react";
 
 // ---------------------------------------------------------------------
-// MAIN CLIENTS
+// TOP 15 MAIN CLIENTS (Carousel)
 // ---------------------------------------------------------------------
 const MAIN_CLIENTS = [
-  { name: "Astro Arun Pandit", category: "Astrology · India", image: "/images/arun-pandit.png" },
-  { name: "Astrotalk", category: "Astrology Platform", image: "/images/astrotalk.png" },
+  { name: "Astro Arun Pandit", category: "Astrologer", image: "/images/arun-pandit.png" },
+  { name: "Astrotalk", category: "Astro company", image: "/images/astrotalk.png" },
+  { name: "Awara Musafir", category: "Podcaster", image: "/images/awara-musafir.png" },
+  { name: "J & C Language School", category: "France based French Language institution", image: "" },
+  { name: "Ekam", category: "Spiritual leadership", image: "/images/ekam.jpeg" },
+  { name: "Abhinay Sharma", category: "Indian Teacher", image: "/images/abhinay-sharma.jpeg" },
+  { name: "Hiten Daxini", category: "Trader", image: "/images/hiten-daxini.jpeg" },
+  { name: "Indresh Upadhyay", category: "Spiritual Leader", image: "/images/indresh-upadhyay.jpeg" },
+  { name: "Amit Bhadana", category: "Youtuber", image: "/images/amit-bhadana.jpeg" },
+  { name: "Rasraj Ji Maharaj", category: "Spiritual Guru", image: "/images/rasrak-maharaj.jpeg" },
+  { name: "Akshat Gupta", category: "Author", image: "/images/akshat-gupta.jpg" },
+  { name: "Abhishek Kar", category: "Content Creator", image: "/images/abhishek-kar.webp" },
+  { name: "Shri Shri Ravi Shankar", category: "Spiritual Guru", image: "/images/sri-ravi-shankar.jpg" },
+  { name: "The Ravya Sharda Show", category: "Podcaster", image: "/images/ravya-sharda.jpeg" },
+  { name: "Pundrik Goswami", category: "Indian spiritual Leader", image: "/images/pundrik-goswami.jpeg" },
+];
+
+// ---------------------------------------------------------------------
+// SECONDARY CLIENTS (Bottom Marquee)
+// ---------------------------------------------------------------------
+const SECONDARY_CLIENTS = [
   { name: "Astro Anand Sharma", category: "Astrology", image: "/images/anand-sharma.jpeg" },
   { name: "Jaya Kishori", category: "Spiritual · India", image: "/images/jaya-kishori.png" },
   { name: "Devi Chitralekha", category: "Spiritual · Kathavachak", image: "/images/devi-chitralekha.jpeg" },
-  { name: "Pundrik Goswami", category: "Spiritual · Kathavachak", image: "/images/pundrik-goswami.jpeg" },
-  { name: "Indresh Upadhyay", category: "Spiritual · Kathavachak", image: "/images/indresh-upadhyay.jpeg" },
   { name: "Astro Ankit Sharma", category: "Astrology", image: "/images/astro-ankit-sharma.jpg" },
-  { name: "Awara Musafir", category: "Podcast · India", image: "/images/awara-musafir.png" },
-  { name: "The Ravya Sharda Show", category: "Podcast / Talk Show", image: "/images/ravya-sharda.jpeg" },
-  { name: "Akshat Gupta", category: "Author / Spiritual", image: "/images/akshat-gupta.jpg" },
-  { name: "Abhishek Kar", category: "Content Creator", image: "/images/abhishek-kar.webp" },
-  { name: "Amit Bhadana", category: "Comedy / YouTuber", image: "/images/amit-bhadana.jpeg" },
   { name: "Sadguru Shri Riteswar Maharaj", category: "Spiritual Guru", image: "/images/sadguru-riteshwar.jpeg" },
-  { name: "Shri Shri Ravi Shankar", category: "Spiritual Guru", image: "/images/sri-ravi-shankar.jpg" },
-  { name: "Rasraj Ji Maharaj", category: "Spiritual Guru", image: "/images/rasrak-maharaj.jpeg" },
 ];
 
 function Initials({ name }) {
@@ -163,7 +173,8 @@ export default function Clients() {
           <div className="cp-also-label">Also Trusted By</div>
           <div className="cp-marquee-mask">
             <div className="cp-marquee-track">
-              {[...MAIN_CLIENTS, ...MAIN_CLIENTS].map((client, i) => {
+              {/* Duplicated SECONDARY_CLIENTS multiple times to ensure continuous infinite scrolling */}
+              {[...SECONDARY_CLIENTS, ...SECONDARY_CLIENTS, ...SECONDARY_CLIENTS, ...SECONDARY_CLIENTS].map((client, i) => {
                 const initials = client.name.split(" ").map((w) => w[0]).slice(0, 2).join("");
                 return (
                   <div className="cp-schip" key={`${client.name}-${i}`}>

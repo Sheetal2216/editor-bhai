@@ -113,7 +113,7 @@ export default function Hero() {
             {/* DESCRIPTION */}
             <Reveal delay={D + 0.26}>
               <p className="mt-4 sm:mt-5 text-sm sm:text-lg leading-6 sm:leading-8 text-charcoal-light max-w-xl mx-auto lg:mx-0">
-                We've worked with top astrologers, creators, brands, and podcasters turning raw footage into scroll-stopping content that skyrockets watch time, maximizes audience retention, and builds a powerful online presence.
+                We've worked with Top creators, brands, trader, Astrologer and podcasters turning raw footage into scroll-stopping content that skyrockets watch time, maximizes audience retention, and builds a powerful online presence.
               </p>
             </Reveal>
 

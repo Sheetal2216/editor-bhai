@@ -63,7 +63,7 @@ export default function Navbar() {
 
         {/* Logo */}
 
-        <a
+       <a
           href="#home"
           onClick={(e) => {
             e.preventDefault();
@@ -71,8 +71,9 @@ export default function Navbar() {
           }}
           className="font-display font-black text-2xl tracking-tight"
         >
-          <span className="text-charcoal">EDITOR</span>{" "}
-          <span className="text-mint-500">BHAI</span>
+          <span className="text-charcoal">EDITOR</span>
+          {/* ml-2 adds a nice space. Increase to ml-3 or ml-4 for more! */}
+          <span className="text-mint-500 ml-2">BHAI</span>
         </a>
 
         {/* Desktop Navigation */}
