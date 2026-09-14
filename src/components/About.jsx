@@ -10,7 +10,11 @@ const FOUNDERS = [
   {
     name: PROFILE.realName,
     role: `Founder · ${PROFILE.name}`,
-    blurb: `Leads editing, strategy and client relationships day to day, working across ${PROFILE.locations.join(", ")}.`,
+    blurb: `With 8+ years of experience in content, creative design, video editing, scripting, YouTube SEO, and organic growth,
+     Abhishek has worked with leading brands, astrologers, and podcasters across India and international markets including 
+     the Middle East, France, Canada, Oman, and Abu Dhabi. His work has generated billions of organic views, with a strong focus
+      on the astrology and digital-content space, including leading names such as AstroTalk. 
+    At Editor Bhai, he combines creativity, strategy, and research to build content that drives real organic growth.`,
     image: "/images/founder.jpeg",
   },
   {
@@ -66,7 +70,7 @@ export default function About() {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
-        {/* FOUNDERS */}
+        {/* FOUNDERS HEADER */}
         <Reveal>
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-[2px] bg-mint-500" />
@@ -86,53 +90,61 @@ export default function About() {
           </p>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 gap-6 mt-10">
+        {/* 
+            FOUNDERS GRID 
+            We removed <Reveal> here and used standard Framer Motion on the card. 
+            This prevents 'overflow:hidden' from cutting off your text!
+        */}
+        <div className="grid sm:grid-cols-2 gap-6 mt-10 items-stretch">
           {FOUNDERS.map((founder, index) => (
-            <Reveal key={founder.name} delay={0.12 + index * 0.08}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.25 }}
-                className="flex flex-col xl:flex-row items-center xl:items-start gap-6 rounded-3xl border border-mint-100 bg-white p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 text-center xl:text-left"
-              >
-                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-2xl overflow-hidden shrink-0 shadow-md border-2 border-mint-50">
-                  {founder.image ? (
-                    <img
-                      src={founder.image}
-                      alt={founder.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-mint-50 flex items-center justify-center font-display font-bold text-mint-700 text-3xl lg:text-4xl">
-                      {founder.name
-                        .split(" ")
-                        .map((w) => w[0])
-                        .join("")
-                        .slice(0, 2)}
-                    </div>
-                  )}
-                </div>
+            <motion.div
+              key={founder.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.12 + index * 0.08 }}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              className="flex flex-col xl:flex-row items-center xl:items-start gap-6 rounded-3xl border border-mint-100 bg-white p-6 lg:p-8 shadow-sm hover:shadow-lg transition-all duration-300 text-center xl:text-left h-full"
+            >
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-2xl overflow-hidden shrink-0 shadow-md border-2 border-mint-50">
+                {founder.image ? (
+                  <img
+                    src={founder.image}
+                    alt={founder.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-mint-50 flex items-center justify-center font-display font-bold text-mint-700 text-3xl lg:text-4xl">
+                    {founder.name
+                      .split(" ")
+                      .map((w) => w[0])
+                      .join("")
+                      .slice(0, 2)}
+                  </div>
+                )}
+              </div>
 
-                <div className="flex-1 mt-2 xl:mt-0">
-                  <p className="font-display font-bold text-xl lg:text-2xl text-charcoal">
-                    {founder.name}
-                  </p>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-mint-600 mt-1.5">
-                    {founder.role}
-                  </p>
-                  <p className="mt-3 text-base text-charcoal-soft leading-relaxed">
-                    {founder.blurb}
-                  </p>
-                </div>
-              </motion.div>
-            </Reveal>
+              <div className="flex-1 mt-2 xl:mt-0 flex flex-col">
+                <p className="font-display font-bold text-xl lg:text-2xl text-charcoal">
+                  {founder.name}
+                </p>
+                <p className="text-sm font-semibold uppercase tracking-wide text-mint-600 mt-1.5 mb-3">
+                  {founder.role}
+                </p>
+                
+                {/* Text will now be fully visible and Rakhi's card will stretch to match */}
+                <p className="text-base text-charcoal-soft leading-relaxed">
+                  {founder.blurb}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* TEAM */}
+        {/* TEAM HEADER */}
         <Reveal delay={0.05} className="mt-16 lg:mt-20">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-[2px] bg-mint-500" />
-           
           </div>
         </Reveal>
 
@@ -156,7 +168,7 @@ export default function About() {
         </Reveal>
 
         {/* TEAM GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5 mt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5 mt-10 items-stretch">
           {TEAM.map((member, index) => (
             <Reveal key={member.name} delay={0.1 + (index % 6) * 0.05}>
               <motion.div

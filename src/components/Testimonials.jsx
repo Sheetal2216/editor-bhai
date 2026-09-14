@@ -3,50 +3,58 @@ import Reveal from "./Reveal";
 // ---------------------------------------------------------------------
 // TEXT TESTIMONIALS
 // ---------------------------------------------------------------------
+
 const TESTIMONIALS = [
   {
     quote:
-      "I was posting randomly with no real plan. Editor Bhai turned one shoot into a week of content and it finally started compounding.",
-    name: "Rohan Malhotra",
-    role: "Fitness Coach & YouTuber",
-    img: 15,
+      "Editor Bhai understands how to present astrology in a way that is easy for the audience to follow. Whether it’s a complex planetary concept or a prediction, the editing keeps the content engaging without taking away from the message.",
+    name: "Astro Arun Pandit",
+    role: "Astrologer",
+    image: "/images/arun-pandit.png",
   },
+
   {
     quote:
-      "I had content going out but no positioning behind it. They helped me turn raw footage into something aligned with my brand.",
-    name: "Priya Nair",
-    role: "UGC Creator & Agency Owner",
-    img: 47,
+      "Tech content can easily become too technical or difficult to follow, but Editor Bhai knows how to make it visually engaging. The way they use cuts, pacing, and visuals makes even complex tech topics easier to consume.",
+    name: "Chaya Tech Talk",
+    role: "Tech Expert",
+    image: "/images/chaya-ted-talks.jpeg",
   },
+
   {
     quote:
-      "The biggest shift was distribution. Same effort on my end, but everything now goes out consistently across every platform.",
-    name: "Aarav Chopra",
-    role: "Podcast Host",
-    img: 33,
+      "What I appreciate about Editor Bhai is their understanding of astrology content. They know where to build curiosity, where to slow things down, and how to highlight important parts of a prediction or astrological explanation.",
+    name: "Astro Anand Sharma",
+    role: "Astrologer",
+    image: "/images/anand-sharma.jpeg",
   },
+
   {
     quote:
-      "As an astrologer, my content needed a very specific tone. This is the first team that actually got that right from day one.",
-    name: "Meera Iyer",
-    role: "Astrologer & Spiritual Coach",
-    img: 45,
+      "For a podcast, the small moments matter — the stories, reactions, and unexpected conversations. Editor Bhai has a great eye for finding those moments and turning them into engaging content that makes people want to watch the full conversation.",
+    name: "Awara Musafir",
+    role: "Podcaster",
+    image: "/images/awara-musafir.png",
   },
+
   {
     quote:
-      "We went from sporadic uploads to a proper content system. Watch time and inbound leads both moved in the same quarter.",
-    name: "Kabir Singh",
-    role: "Real Estate Business Owner",
-    img: 22,
+      "Editor Bhai knows how to bring out the important parts of an astrology discussion. The editing helps simplify concepts, highlight key insights, and keep viewers engaged throughout the video.",
+    name: "Astro Ankit Sharma",
+    role: "Astrologer",
+    image: "/images/astro-ankit-sharma.jpg",
   },
+
   {
     quote:
-      "Editing was never the bottleneck for me, planning was. Having one team handle both took that weight off completely.",
-    name: "Ananya Rao",
-    role: "Freelance Business Coach",
-    img: 60,
+      "Spiritual content needs to retain its emotion and depth while still connecting with today’s audience. Editor Bhai understands that balance very well. The editing feels engaging without overpowering the essence of the message.",
+    name: "Renuka Goswami",
+    role: "Spiritual Leader",
+    image: "/images/renuka-goswami.jpeg",
   },
 ];
+
+
 
 // ---------------------------------------------------------------------
 // VIDEO TESTIMONIALS
@@ -969,14 +977,22 @@ export default function Testimonials() {
                     <div className="tst-person">
 
                       <div className="tst-avatar">
-
-                        <img
-                          src={`https://i.pravatar.cc/100?img=${t.img}`}
-                          alt={t.name}
-                          loading="lazy"
-                        />
-
-                      </div>
+  {t.image ? (
+    <img
+      src={t.image}
+      alt={t.name}
+      loading="lazy"
+    />
+  ) : (
+    <div className="tst-avatar-fallback">
+      {t.name
+        .split(" ")
+        .map((word) => word[0])
+        .join("")
+        .slice(0, 2)}
+    </div>
+  )}
+</div>
 
                       <div>
 

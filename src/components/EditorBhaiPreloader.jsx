@@ -135,7 +135,7 @@ export default function EditorBhaiPreloader({ onComplete }) {
             >
 
               <img
-                src="/images/logo.png"
+                src="/images/logo - Copy.png"
                 alt="Editor Bhai"
                 className="eb-logo"
               />
@@ -396,7 +396,7 @@ export default function EditorBhaiPreloader({ onComplete }) {
 
                 <i />
 
-                WE EDIT STORIES THAT CONNECT
+                WE BUILD BRANDS THAT CONNECTS
 
                 <i />
 
