@@ -7,7 +7,7 @@ const MAIN_CLIENTS = [
   { name: "Astro Arun Pandit", category: "Astrologer", image: "/images/arun-pandit.png" },
   { name: "Astrotalk", category: "Astro company", image: "/images/astrotalk.png" },
   { name: "Awara Musafir", category: "Podcaster", image: "/images/awara-musafir.png" },
-  { name: "J & C Language School", category: "France based French Language institution", image: "" },
+  { name: "J & C Language School", category: "France based French Language institution", image: "/images/j_&_C.png" },
   { name: "Ekam", category: "Spiritual leadership", image: "/images/ekam.jpeg" },
   { name: "Abhinay Sharma", category: "Indian Teacher", image: "/images/abhinay-sharma.jpeg" },
   { name: "Hiten Daxini", category: "Trader", image: "/images/hiten-daxini.jpeg" },
