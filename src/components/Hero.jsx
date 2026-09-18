@@ -90,7 +90,7 @@ export default function Hero() {
 
    {/* TITLE + LOGO */}
             <Reveal delay={D + 0.1}>
-              <div className="-mt-1 sm:-mt-4 lg:-mt-6 flex items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 w-fit mx-auto lg:mx-0">
+             <div className="-mt-3 sm:-mt-6 lg:-mt-8 flex items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 w-fit mx-auto lg:mx-0">
                 <h1 className="font-display font-black uppercase leading-[0.86] tracking-tight text-charcoal text-left text-[42px] min-[390px]:text-[46px] min-[430px]:text-[50px] sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[86px] shrink-0">
                   Editor<br />Bhai
                 </h1>
@@ -107,7 +107,7 @@ export default function Hero() {
 
             {/* ROLE */}
             <Reveal delay={D + 0.18}>
-              <p className="mt-4 sm:mt-5 text-base sm:text-xl font-semibold text-mint-700">{PROFILE.title}</p>
+            <p className="-mt-6 sm:-mt-8 lg:-mt-10 text-base sm:text-xl font-semibold text-mint-700"></p>
             </Reveal>
 
             {/* DESCRIPTION */}
